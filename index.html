@@ -10,18 +10,24 @@
         * {
             box-sizing: border-box;
             margin: 0;
+
+            user-select: none;
         }
 
         body {
             font-family: "Arial";
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
             height: 100vh;
 
             background-color: #0e0e0f;
             color: #fff;
+        }
+
+        body, form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
         h1 {
@@ -30,7 +36,7 @@
 
         input {
             padding: .5rem 1rem;
-            border: 1px solid #131414;
+            border: 1px solid #232424;
             background-color: #0e0e0f;
             font-size: 16px;
             margin-bottom: 1rem;
@@ -41,7 +47,7 @@
         button {
             cursor: pointer;
             font-size: 16px;
-            border: 1px solid #131414;
+            border: 1px solid #232424;
             background-color: #0e0e0f;
             padding: .5rem 1rem;
             color: #fff;
@@ -51,7 +57,44 @@
         }
 
         button:hover {
-            background-color: #131414;
+            background-color: #232424;
+            border-color: #2a2a2f;
+        }
+
+        h4 {
+            display: block;
+            margin-top: 1rem;
+            color: #2a2a2f;
+            letter-spacing: 2px;
+            margin-bottom: .5rem;
+            text-transform: uppercase;
+
+        }
+
+        .types {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .type p {
+            cursor: pointer;
+            border: 1px solid #232424;
+            margin: 0 .5rem;
+            border-radius: 6px;
+            padding: .5rem;
+            font-size: 14px;
+        }
+
+        hr {
+            width: 50%;
+            border: none;
+            margin: 1.5rem 0 2.5rem;
+            border-bottom: 2px solid #232424;
+        }
+
+        input:checked + p {
+            background-color: #232424;
             border-color: #2a2a2f;
         }
     </style>
@@ -60,7 +103,51 @@
 
     <h1>Minecraft Avatar Grabber</h1>
 
-    <input id="minecraft-username" type="text" placeholder="Minecraft Username">
+    <form onsubmit="">
+        <h4>Types</h4>
+        <div class="types">
+            <label for="type-avatar" class="type">
+                <input type="radio" hidden name="type" id="type-avatar">
+                <p>Avatar</p>
+            </label>
+
+            <label for="type-head" class="type">
+                <input type="radio" hidden name="type" id="type-head">
+                <p>Head Render</p>
+            </label>
+
+            <label for="type-body" class="type">
+                <input type="radio" hidden name="type" id="type-body">
+                <p>Body Render</p>
+            </label>
+
+            <label for="type-skin" class="type">
+                <input type="radio" hidden name="type" id="type-skin">
+                <p>Skin</p>
+            </label>
+
+            <label for="type-cape" class="type">
+                <input type="radio" hidden name="type" id="type-cape">
+                <p>Cape</p>
+            </label>
+        </div>
+
+        <div class="types">
+            <div style="text-align: center;">
+                <h4>Size</h4>
+                <input type="number" min="1" max="512" id="size" style="margin-right: .5rem">
+            </div>
+            <div style="text-align: center;">
+                <h4>Scale</h4>
+                <input type="number" min="1" max="10" id="scale" style="margin-left: .5rem">
+            </div>
+
+        </div>
+
+        <hr>
+
+        <input id="minecraft-username" type="text" placeholder="Minecraft Username">
+    </form>
     <div>
         <button onclick="grabAvatar()">Grab Avatar</button>
         <button onclick="downloadAvatar()">Download</button>

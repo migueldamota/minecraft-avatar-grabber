@@ -1,5 +1,15 @@
 const minecraftUsername = document.getElementById("minecraft-username");
 const minecraftAvatar = document.getElementById("minecraft-avatar");
+const types = document.getElementsByName("type");
+const size = document.getElementById("size");
+
+const avatarType = {
+    avatar: "avatars",
+    head: "renders/head",
+    body: "renders/body",
+    skin: "skins",
+    cape: "capes",
+}
 
 async function grabAvatar () {
     const username = minecraftUsername.value;
@@ -7,7 +17,14 @@ async function grabAvatar () {
     const data = await fetch(`https://api.ashcon.app/mojang/v2/user/${username}`)
         .then((res) => res.json());
 
-    minecraftAvatar.src = `https://crafatar.com/renders/head/${data.uuid}?overlay`;
+    for (const type of types) {
+        if (!type.checked) continue;
+        console.log(type);
+
+
+        minecraftAvatar.src = `https://crafatar.com/${avatarType[type.id.substring(5)]}/${data.uuid}?overlay&size=${size.value}`;
+    }
+
 }
 
 async function downloadAvatar () {
