@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Avatar Grabber</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            font-family: "Arial";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+
+            background-color: #0e0e0f;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+        }
+
+        input {
+            padding: .5rem 1rem;
+            border: 1px solid #131414;
+            background-color: #0e0e0f;
+            font-size: 16px;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            color: #fff;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: 16px;
+            border: 1px solid #131414;
+            background-color: #0e0e0f;
+            padding: .5rem 1rem;
+            color: #fff;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: background-color .15s, border-color .15s;
+        }
+
+        button:hover {
+            background-color: #131414;
+            border-color: #2a2a2f;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Minecraft Avatar Grabber</h1>
+
+    <input id="minecraft-username" type="text" placeholder="Minecraft Username">
+    <div>
+        <button onclick="grabAvatar()">Grab Avatar</button>
+        <button onclick="downloadAvatar()">Download</button>
+    </div>
+
+    <img src="" id="minecraft-avatar">
+
+    <script src="app.js"></script>
+
+</body>
+</html>
